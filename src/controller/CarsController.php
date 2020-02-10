@@ -8,6 +8,6 @@ class CarsController
 
     public function index()
     {
-        echo "Voici la liste des voitures.";
+        include_once __DIR__ . '/../../template/cars/index.php';
     }
 }
