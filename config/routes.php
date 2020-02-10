@@ -2,12 +2,9 @@
 
 $router = $container->getRouter();
 
-$router->get('/hello', function() {
-    echo "Hello world !";
-});
-
-$router->get('/', function () {
-    echo "Bienvenue sur mon site !";
-});
+$router->setNameSpace('App\Controller');
+$router->get('/cars', 'CarsController@index');
 
 $router->run();
+
+
