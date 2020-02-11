@@ -14,4 +14,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $container = new ServiceContainer($configuration);
 
+$loader = new \Twig\Loader\ArrayLoader([
+    'index' => 'Salut {{ name }}!',
+]);
+$twig = new \Twig\Environment($loader);
+
+echo '<h1>' . $twig->render('index', ['name' => 'ma Couille']) . '</h1>';
+die;
+
 require_once __DIR__ . '/routes.php';

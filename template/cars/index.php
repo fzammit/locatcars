@@ -17,6 +17,7 @@
     <br>
     <hr class="bg-primary">
 
+    <br>
     <ul class="list-group col-6 ml-auto mr-auto rounded">
         <?php foreach ($cars as $car) : ?>
             <li class="text-primary list-group-item"><?= $car->getBrand() ?> - <?= $car->getModel() ?></li>
