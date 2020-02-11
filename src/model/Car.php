@@ -21,9 +21,9 @@ class Car
      * @param int $id
      * @return void
      */
-    public function setId()
+    public function setId(int $id)
     {
-        return $this->id;
+        $this->id = $id;
     }
 
     /**
@@ -39,9 +39,9 @@ class Car
      * @param string $brand
      * @return void
      */
-    public function setBrand()
+    public function setBrand(string $brand)
     {
-        return $this->brand;
+        $this->brand=$brand;
     }
 
     /**
@@ -57,8 +57,8 @@ class Car
      * @param string $model
      * @return void
      */
-    public function setModel()
+    public function setModel(string $model)
     {
-        return $this->model;
+        $this->model = $model;
     }
 }

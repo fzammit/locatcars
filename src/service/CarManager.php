@@ -5,7 +5,7 @@ namespace App\Service;
 use App\Model\Car;
 use PDO;
 
-class CarManager
+class CarManager implements ManagerInterface
 {
 
     private $pdo;
@@ -13,6 +13,20 @@ class CarManager
     public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
+    }
+
+
+    /**
+     * @param array $array
+     * @return Car
+     */
+    public function arrayToObject(array $array){
+        $car = new Car;
+        $car->setId($array['id']);
+        $car->setModel($array['model']);
+        $car->setBrand($array['brand']);
+
+        return $car;
     }
 
     /**
@@ -25,7 +39,14 @@ class CarManager
         $statement->execute();
 
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $data;
+
+        $cars = [];
+
+        foreach($data as $d) {
+            $cars[] = $this->arrayToObject($d);
+            //array_push($cars, $this->arrayToObject($d));
+        }   
+        return $cars;
     }
 
     /**

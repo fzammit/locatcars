@@ -11,8 +11,6 @@ class CarsController extends AbstractController
 
         $cars = $this->container->getCarManager()->findAll();
 
-        dd($cars);
-
         /**$cars = [
             [
                 "brand" => "Maserati",
