@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Model;
+
 class Car
 {
     private $id;
@@ -16,7 +18,7 @@ class Car
     }
 
     /**
-     * 
+     * @param int $id
      * @return void
      */
     public function setId()
@@ -34,7 +36,7 @@ class Car
     }
 
     /**
-     * 
+     * @param string $brand
      * @return void
      */
     public function setBrand()
@@ -52,7 +54,7 @@ class Car
     }
 
     /**
-     * 
+     * @param string $model
      * @return void
      */
     public function setModel()

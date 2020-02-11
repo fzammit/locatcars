@@ -21,4 +21,8 @@ class CarsController
 
         include_once __DIR__ . '/../../template/cars/index.php';
     }
+    public function show(int $id)
+    {
+        echo " Voici la voiture numéro" . $id;
+    }
 }
