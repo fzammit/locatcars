@@ -7,9 +7,11 @@ use PDO;
 
 class ServiceContainer
 {
-    private $router;
 
+    private $configuration;
+    private $router;
     private $pdo;
+    private $carManager;
 
     public function __construct(array $configuration)
     {
@@ -32,6 +34,16 @@ class ServiceContainer
                 $this->configuration['db']['username'],
                 $this->configuration['db']['password'],
             );
+            return $this->pdo;
         }
+    }
+    
+    public function getCarManager()
+    {
+        if ($this->carManager === null) {
+            $this->carManager = new CarManager($this->getPdo());
+        }
+
+        return $this->carManager;
     }
 }
