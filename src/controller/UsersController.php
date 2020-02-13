@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-class UserController extends AbstractController
+class UsersController extends AbstractController
 {
-    
+
     public function index()
     {
         $users = $this->container->getUserManager()->findAll();

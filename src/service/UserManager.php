@@ -19,7 +19,7 @@ class UserManager implements ManagerInterface
     {
         $user = new User;
         $user->setId($array['id']);
-        $user->setFirstName($array('firstname'));
+        $user->setFirstName($array['firstname']);
         $user->setLastName($array['lastname']);
 
         return $user;
