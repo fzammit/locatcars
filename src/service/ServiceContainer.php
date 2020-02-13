@@ -16,6 +16,15 @@ class ServiceContainer
     private $pdo;
     private $carManager;
     private $twig;
+    private $userManager;
+
+    public function getUserManager(){
+        if ($this->userManager === null)
+        {
+            $this->userManager = new UserManager($this->getPdo());
+        }
+        return $this->userManager;
+    }
 
     public function __construct(array $configuration)
     {
