@@ -3,7 +3,10 @@
 namespace App\Service;
 
 use Bramus\Router\Router;
+use Error;
 use PDO;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 class ServiceContainer
 {
@@ -12,6 +15,7 @@ class ServiceContainer
     private $router;
     private $pdo;
     private $carManager;
+    private $twig;
 
     public function __construct(array $configuration)
     {
@@ -37,7 +41,7 @@ class ServiceContainer
             return $this->pdo;
         }
     }
-    
+
     public function getCarManager()
     {
         if ($this->carManager === null) {
@@ -45,5 +49,21 @@ class ServiceContainer
         }
 
         return $this->carManager;
+    }
+    public function getTwig()
+    {
+
+        if ($this->twig === null) {
+            try {
+                //On dit que nos templates seront dans le dossier template
+                $loader = new FilesystemLoader(__DIR__ . '/../../template');
+                $twig = new Environment($loader);
+                $this->twig = $twig;
+
+            }
+            catch (Error $e) {
+            }
+        }
+        return $this->twig;
     }
 }

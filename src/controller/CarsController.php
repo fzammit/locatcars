@@ -6,26 +6,11 @@ class CarsController extends AbstractController
 {
 
 
-    public function index()
-    {
-
+    public function index(){
         $cars = $this->container->getCarManager()->findAll();
 
-        /**$cars = [
-            [
-                "brand" => "Maserati",
-                "model" => "Alfieri"
-            ],
-            [
-                "brand" => "Ferrari",
-                "model" => "F8 Tributo"
-            ]
-        ];*/
-
-        include_once __DIR__ . '/../../template/cars/index.php';
-    }
-    public function show(int $id)
-    {
-        echo " Voici la voiture numéro" . $id;
+        echo $this->container->getTwig()->render('/cars/index.html.twig', [
+            'cars' => $cars, //On envoie la variable $cars à notre template. Il le recevra nommée "cars".
+        ]);
     }
 }
