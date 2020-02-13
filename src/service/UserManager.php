@@ -36,12 +36,12 @@ class UserManager implements ManagerInterface
 
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        $user = [];
+        $users = [];
 
         foreach ($data as $d) {
-            $cars[] = $this->arrayToObject($d);
+            $users[] = $this->arrayToObject($d);
         }
-        return $user;
+        return $users;
     }
 
     /**
