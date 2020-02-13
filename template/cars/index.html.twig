@@ -1,5 +1,17 @@
-<ul class='list-unstyle'>
-        {% for car in cars %}
-        <li>{{car.brand}} {{car.model}}</li>
-        {% endfor %}
-</ul>
+{% extends 'base.html.twig' %}
+{% block h1 %}
+        Voitures
+{% endblock %}
+{% block content %}
+        <ul class='list-group'>
+                {% for car in cars %}
+                        <li class='list-group-item border border-light col-5 ml-auto mr-auto text-center'>
+                                <a href="{{env.base_path }}/cars/{{car.id}} " class='text-dark'>
+                                <!--<a href="{{env.base_path ~ 'cars/' ~ car.id}}'>-->
+                                        {{car.brand}} {{car.model}}
+                                </a>
+                        </li>
+                {% endfor %}
+        </ul>
+        
+{% endblock %}
