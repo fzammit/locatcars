@@ -13,4 +13,12 @@ class UsersController extends AbstractController
             'users' => $users,
         ]);
     }
+
+    public function show(int $id)
+    {        
+        $users = $this->container->getUserManager()->findOneById($id);
+        echo $this->container->getTwig()->render('/users/show.html.twig', [
+            'users' => $users,
+        ]);
+    }
 }

@@ -13,4 +13,12 @@ class CarsController extends AbstractController
             'cars' => $cars, //On envoie la variable $cars à notre template. Il le recevra nommée "cars".
         ]);
     }
+
+    public function new() {
+        echo $this->container->getTwig()->render('/cars/new.html.twig');
+    }
+
+    public function create(){
+        dd($_POST);
+    }
 }

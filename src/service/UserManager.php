@@ -50,6 +50,14 @@ class UserManager implements ManagerInterface
      */
     public function findOneById(int $id)
     {
+        $query = 'SELECT * FROM user WHERE id = :$id';
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([
+            "id" => $_GET['id'],
+        ]);
+        $users = $statement->fetch();
+
+        return $users;
     }
 
     /**
