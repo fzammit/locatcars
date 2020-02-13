@@ -4,10 +4,13 @@ namespace App\Controller;
 
 class UserController extends AbstractController
 {
+    
     public function index()
     {
         $users = $this->container->getUserManager()->findAll();
-        
-        var_dump($users);
+
+        echo $this->container->getTwig()->render('/users/index.html.twig', [
+            'users' => $users,
+        ]);
     }
 }
