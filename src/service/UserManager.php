@@ -66,4 +66,24 @@ class UserManager implements ManagerInterface
     public function findByField(string $field, string $value)
     {
     }
+
+    public function create(array $data) {
+        $query = "INSERT INTO user(fistname, lastname) VALUES(:firstname, :lastname)";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname']
+        ]);
+    }
+
+    public function update(int $id, array $data)
+    {
+        $query = "UPDATE user SET firstname = :firstname, lastname = :lastname WHERE id =:id";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([
+            'id' => $id,
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname']
+        ]);
+    }
 }
