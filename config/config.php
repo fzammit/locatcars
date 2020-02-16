@@ -9,7 +9,7 @@ $configuration = [
         'password' => '',
     ],
     'env' => [
-        'base_path' => 'http://http://localhost/locatcars/'
+        'base_path' => 'http://localhost/locatcars/'
     ]
 ];
 
