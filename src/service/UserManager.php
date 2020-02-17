@@ -67,8 +67,13 @@ class UserManager implements ManagerInterface
     {
     }
 
-    public function create(array $data) {
-        $query = "INSERT INTO user(fistname, lastname) VALUES(:firstname, :lastname)";
+    public function new()
+    {
+    }
+
+    public function create(array $data)
+    {
+        $query = "INSERT INTO user(firstname, lastname) VALUES(:firstname, :lastname)";
         $statement = $this->pdo->prepare($query);
         $statement->execute([
             'firstname' => $data['firstname'],
