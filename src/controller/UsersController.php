@@ -59,6 +59,6 @@ class UsersController extends AbstractController
     public function delete(int $id)
     {
         $this->container->getUserManager()->delete($id);
-        header('Location: ' . $this->config['env']['base_path'] . '/users/' . $id);
+        header('Location: ' . $this->config['env']['base_path'] . '/users/');
     }
 }

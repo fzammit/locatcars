@@ -92,10 +92,13 @@ class UserManager implements ManagerInterface
         ]);
     }
 
+    /**
+     * @param int $id
+     */
     public function delete(int $id)
     {
-        $query = "DELETE FROM users WHERE id = . $id";
+        $query = "DELETE FROM user WHERE id = :id";
         $statement = $this->pdo->prepare($query);
-        $statement->execute();
+        $statement->execute(['id' => $id,]);
     }
 }
