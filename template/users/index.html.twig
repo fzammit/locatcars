@@ -1,14 +1,16 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-        Users
+Users
 {% endblock %}
 {% block content %}
-    <ul class='list-group text-center col-5 ml-auto mr-auto'>
-        {% for user in users %}
-            <li class='list-group-item border deep-purple-text'>
-                <a href="{{env.base_path }}users/{{user.id}} " class='text-dark'>{{user.firstname}} {{user.lastname}}</a>
-            </li>
-        {% endfor %}
-    </ul>
+<ul class='list-group text-center col-5 ml-auto mr-auto'>
+    {% for user in users %}
+    <li class='list-group-item border deep-purple-text'>
+        <a href="{{env.base_path }}users/{{user.id}} " class='text-dark'>{{user.firstname}} {{user.lastname}}</a>
+    </li>
+    {% endfor %}
+</ul>
+<div class="btn btn-deep-purple darken-4 rounded ">
+    <a href="{{ env.base_path ~ '/users/' ~ users.id ~ '/edit' }}" class="text-white">Add</a>
+</div>
 {% endblock %}
-

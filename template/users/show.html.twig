@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-Utilisateurs : {{ users.firstname }} {{ users.lastname }}
+{{ users.firstname }} {{ users.lastname }}
 {% endblock %}
 
 {% block content %}
-{{ users.firstname }} {{ users.lastname }}
-
-<a class"text-white" href="{{ env.base_path ~ '/users/' ~ users.id ~ '/edit' }}">Éditer</a>
+<div class=" btn btn-success rounded ">
+    <a href="{{ env.base_path ~ '/users/' ~ users.id ~ '/edit' }}" class="text-white">Update</a>
+</div>
+<div class="btn btn-primary rounded">
+    <a href="{{ env.base_path ~ '/users/' }}" class="text-white">Accueil</a>
+</div>
 {% endblock %}

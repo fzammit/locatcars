@@ -34,7 +34,7 @@ class UsersController extends AbstractController
     public function create()
     {
         $this->container->getUserManager()->create($_POST);
-        header('Location: ' . $this->configuration['env']['base_path'] . '/users');
+        header('Location: ' . $this->config['env']['base_path'] . '/users');
     }
 
     /**
@@ -53,6 +53,6 @@ class UsersController extends AbstractController
     public function update(int $id)
     {
         $this->container->getUserManager()->update($id, $_POST);
-        header('Location: ' . $this->configuration['env']['base_path'] . '/users/' . $id);
+        header('Location: ' . $this->config['env']['base_path'] . '/users/' . $id);
     }
 }
