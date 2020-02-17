@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-Voitures
+Uilisateurs
 {% endblock %}
 {% block content %}
-<form action="{{env.base_path  ~ '/cars'}}" method="post">
+<form action="{{env.base_path  ~ '/users'}}" method="post">
 
     <div class="form-group">
-        <label class="FormBrand" for="brand">Marque</label>
-        <input name="Brand" type="text">
+        <label class="FormBrand" for="firstname">Firstname</label>
+        <input name="Firstname" type="text">
     </div>
     <div class="form-group">
-        <label class="FormModel" for="">Modèle</label>
-        <input name="Model" type="text">
+        <label class="FormModel" for="lastname">Lastname</label>
+        <input name="Lastname" type="text">
     </div>
 
     <button class="btn btn-success" type="reset">Envoie</button>

@@ -7,5 +7,5 @@ Utilisateurs : {{ users.firstname }} {{ users.lastname }}
 {% block content %}
 {{ users.firstname }} {{ users.lastname }}
 
-<a class"btn btn-warning" href="{{ env.base_path ~ '/users/' ~ users.id ~ '/edit' }}">Éditer</a>
+<a class"text-white" href="{{ env.base_path ~ '/users/' ~ users.id ~ '/edit' }}">Éditer</a>
 {% endblock %}
