@@ -6,7 +6,7 @@ Users
 <ul class='list-group text-center col-5 ml-auto mr-auto'>
     {% for user in users %}
     <li class='list-group-item border deep-purple-text'>
-        <a href="{{env.base_path }}users/{{user.id}} " class='text-dark'>{{user.firstname}} {{user.lastname}}</a>
+        <a href="{{env.base_path }}users/{{user.id}} " class='text-dark'>{{user.firstname}} {{user.lastname}}</a><a href="" class="btn btn-danger rounded"> Delete</a>
     </li>
     {% endfor %}
 </ul>

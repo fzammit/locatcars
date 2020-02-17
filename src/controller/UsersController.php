@@ -55,4 +55,10 @@ class UsersController extends AbstractController
         $this->container->getUserManager()->update($id, $_POST);
         header('Location: ' . $this->config['env']['base_path'] . '/users/' . $id);
     }
+
+    public function delete(int $id)
+    {
+        $this->container->getUserManager()->delete($id);
+        header('Location: ' . $this->config['env']['base_path'] . '/users/' . $id);
+    }
 }
