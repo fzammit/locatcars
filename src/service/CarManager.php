@@ -20,7 +20,8 @@ class CarManager implements ManagerInterface
      * @param array $array
      * @return Car
      */
-    public function arrayToObject(array $array){
+    public function arrayToObject(array $array)
+    {
         $car = new Car;
         $car->setId($array['id']);
         $car->setModel($array['model']);
@@ -42,10 +43,10 @@ class CarManager implements ManagerInterface
 
         $cars = [];
 
-        foreach($data as $d) {
+        foreach ($data as $d) {
             $cars[] = $this->arrayToObject($d);
             //array_push($cars, $this->arrayToObject($d));
-        }   
+        }
         return $cars;
     }
 
@@ -55,6 +56,12 @@ class CarManager implements ManagerInterface
      */
     public function findOneById(int $id)
     {
+        $query = 'SELECT * FROM car WHERE id = :id';
+        $statement = $this->pdo->prepare($query);
+        $statement->execute(["id" => $id]);
+        $data = $statement->fetch(PDO::FETCH_ASSOC);
+        $car = $this->arrayToObject($data);
+        return $car;
     }
 
     /**
@@ -65,4 +72,40 @@ class CarManager implements ManagerInterface
     public function findByField(string $field, string $value)
     {
     }
+
+    public function new()
+    {
+    }
+
+    public function create(array $data)
+    {
+        $query = "INSERT INTO car(brand, model) VALUES(:brand, :model)";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([
+            'brand' => $data['brand'],
+            'model' => $data['model']
+        ]);
+    }
+
+    public function update(int $id, array $data)
+    {
+        $query = "UPDATE car SET brand = :brand, model = :model WHERE id =:id";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([
+            'id' => $id,
+            'brand' => $data['brand'],
+            'model' => $data['model']
+        ]);
+    }
+
+    /**
+     * @param int $id
+     */
+    public function delete(int $id)
+    {
+        $query = "DELETE FROM car WHERE id = :id";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute(['id' => $id,]);
+    }
+
 }

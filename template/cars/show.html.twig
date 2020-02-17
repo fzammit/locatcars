@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ cars.brand }} {{ cars.model }}
+{% endblock %}
+
+{% block content %}
+<div class=" btn btn-success rounded ">
+    <a href="{{ env.base_path ~ '/cars/' ~ users.id ~ '/edit' }}" class="text-white">Update</a>
+</div>
+<div class="btn btn-primary rounded">
+    <a href="{{ env.base_path ~ '/cars/' }}" class="text-white">Home</a>
+</div>
+{% endblock %}

@@ -1,17 +1,20 @@
 {% extends 'base.html.twig' %}
-{% block h1 %}
-        Voitures
+{% block title %}
+Cars
 {% endblock %}
 {% block content %}
-        <ul class='list-group'>
-                {% for car in cars %}
-                        <li class='list-group-item border border-light col-5 ml-auto mr-auto text-center'>
-                                <a href="{{env.base_path }}/cars/{{car.id}} " class='text-dark'>
-                                <!--<a href="{{env.base_path ~ 'cars/' ~ car.id}}'>-->
-                                        {{car.brand}} {{car.model}}
-                                </a>
-                        </li>
-                {% endfor %}
-        </ul>
-        
+<ul class='list-group text-center col-5 ml-auto mr-auto'>
+        {% for car in cars %}
+        <li class='list-group-item border deep-purple-text'>
+                <a href="{{env.base_path }}cars/{{car.id}} " class='text-dark'>{{car.brand}}
+                        {{car.model}}</a>
+                <a href="{{env.base_path ~ 'cars/' ~ car.id ~ '/delete'}}"
+                        class=" ml-5 shadow rounded col-3 text-center bg-danger text-white col-3"><i
+                                class="fas fa-trash-alt"></i></a>
+        </li>
+        {% endfor %}
+</ul>
+<div class="deep-purple darken-4 ml-auto mr-auto text-center col-1 mt-5 rounded ">
+        <a href="{{ env.base_path ~ '/cars/new' }}" class="text-white"><i class="fas fa-plus"></i></a>
+</div>
 {% endblock %}
