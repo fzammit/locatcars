@@ -6,11 +6,12 @@ Users
 <ul class='list-group text-center col-5 ml-auto mr-auto'>
     {% for user in users %}
     <li class='list-group-item border deep-purple-text'>
-        <a href="{{env.base_path }}users/{{user.id}} " class='text-dark'>{{user.firstname}} {{user.lastname}}</a><a href="" class="btn btn-danger rounded"> Delete</a>
+        <a href="{{env.base_path }}users/{{user.id}} " class='text-dark'>{{user.firstname}} {{user.lastname}}</a>
+        <a href="{{env.base_path ~ 'users/' ~ user.id ~ '/remove'}}" class=" ml-5 shadow rounded col-3 text-center bg-danger text-white col-3"><i class="fas fa-trash-alt"></i></a>
     </li>
     {% endfor %}
 </ul>
-<div class="btn btn-deep-purple darken-4 rounded ">
-    <a href="{{ env.base_path ~ '/users/new' }}" class="text-white">Add</a>
+<div class="deep-purple darken-4 ml-auto mr-auto text-center col-1 mt-5 rounded ">
+    <a href="{{ env.base_path ~ '/users/new' }}" class="text-white"><i class="fas fa-plus"></i></a>
 </div>
 {% endblock %}
